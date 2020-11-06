@@ -12,7 +12,12 @@ is.road
 is.icon
 is.wallable=is.wall&&is.door&&is.doorkey&&is.doorsec
 ;
-let mm=new Mesher(10)
+let boxsize=10
+let mm=new Mesher(boxsize)
+let getPos=(f,x,y,flg)=>{
+ let a=flg?boxsize:0
+ return new THREE.Vector3(x*boxsize,-f*boxsize*2+a,y*boxsize)
+}
 let f00=lab(seed,roomnum,wallrate,doorrate)
 let iw=20,f=0,x,y
 let url='https://gnjo.github.io/mock3d/wall/red2-min.jpg'
